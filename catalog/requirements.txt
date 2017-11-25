@@ -5,3 +5,4 @@ flask_httpauth==3.2.3
 httplib2==0.10.3
 google_api_python_client==1.6.4
 passlib==1.7.1
+gunicorn==19.7.1
