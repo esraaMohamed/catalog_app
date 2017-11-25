@@ -259,7 +259,7 @@ def gconnect():
     access_token = credentials.access_token
     url = ('https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=%s'
            % access_token)
-    h = httplib2.Http()
+    h = httplib2.Http(disable_ssl_certificate_validation=True)
     result = json.loads(h.request(url, 'GET')[1])
     # If there was an error in the access token info, abort.
     if result.get('error') is not None:
@@ -344,7 +344,7 @@ def gdisconnect():
         response.headers['Content-Type'] = 'application/json'
         return response
     url = 'https://accounts.google.com/o/oauth2/revoke?token=%s' % access_token
-    h = httplib2.Http()
+    h = httplib2.Http(disable_ssl_certificate_validation=True)
     result = h.request(url, 'GET')[0]
     if result['status'] == '200':
         login_session['username'] = login_session['username']
@@ -406,7 +406,7 @@ def fbconnect():
     # Get user picture
     url = 'https://graph.facebook.com/v2.8/me/picture?access_token' \
           '=%s&redirect=0&height=200&width=200' % token
-    h = httplib2.Http()
+    h = httplib2.Http(disable_ssl_certificate_validation=True)
     result = h.request(url, 'GET')[1]
     data = json.loads(result)
 
