@@ -1,4 +1,5 @@
 # Catalog App
+## The app is deployed on heroku on [Catalog App](https://sports-catalog-app.herokuapp.com/)
 
 **What you need:**
  >The linux VM
