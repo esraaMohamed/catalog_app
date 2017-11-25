@@ -19,6 +19,8 @@ from database_setup import Base, Category, Item, User
 auth = HTTPBasicAuth()
 
 app = Flask(__name__)
+app.secret_key = 'supersecretkey'
+app.debug = True
 
 engine = create_engine('sqlite:///catalog.db')
 Base.metadata.bind = engine
