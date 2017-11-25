@@ -390,7 +390,7 @@ def fbconnect():
 
     url = 'https://graph.facebook.com/v2.8/' \
           'me?access_token=%s&fields=name,id,email' % token
-    h = httplib2.Http()
+    h = httplib2.Http(disable_ssl_certificate_validation=True)
     result = h.request(url, 'GET')[1]
     # print "url sent for API access:%s"% url
     # print "API JSON result: %s" % result
