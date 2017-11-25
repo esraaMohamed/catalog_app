@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href='{{url_for("static",
+    filename="styles.css")}}'>
+    <link rel="icon" type="image/png" sizes="32x32"
+          href="{{ url_for('static', filename='favicon.ico') }}">
+    <title>Category Items</title>
+</head>
+<body>
+  <header>
+      <article id="header-article">
+        <figure>
+          <h1>
+          <a class="undecorated-link"
+          href="{{url_for('show_all_categories')}}">
+            <img class="bicycle-img"
+            src="{{ url_for('static', filename='bicycle.png')}}">
+            Sports Catalog
+          </a>
+        </h1>
+        </figure>
+        <figcaption></figcaption>
+      </article>
+      <article id="login-logout">
+          {%if 'username' not in session %}
+          <a class="button button-green login-logout"
+          href="{{url_for('show_login')}}">
+                  Login </a>
+          {% else %}
+          <a class="button button-green login-logout"
+          href="{{url_for('disconnect')}}">
+              Logout </a>
+          {% endif %}
+      </article>
+  </header>
+  <main>
+    <article id="flash">
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          <ul>
+              {% for message in messages %}
+              <li><strong>{{message}}</strong></li>
+              {% endfor %}
+          </ul>
+          {% endif %}
+          {% endwith %}
+          {% if categories == 0 %}
+          <p> You currently have no categories listed </p>
+          {% endif %}
+    </article>
+    <article id="main-article">
+            <div class="container">
+              <figure>
+                <img class="main-img"
+                src="{{url_for('static', filename='main.jpg')}}" alt="main image">
+              </figure>
+              <figcaption></figcaption>
+            <div class="centered green-bg-color">
+              <h2>{{category.name}}</h2></div>
+            <div class="bottom-center">
+              <h1>
+                <figcaption>
+                  <a class="undecorated-link"
+                  href='{{url_for("add_new_category_item",
+                  category_id=category.id)}}'>
+                      Create a New Item</a>
+                </figcaption>
+                <figure>
+                  <img class="football-img"
+                  src="{{url_for('static', filename='football.jpg')}}"
+                  alt="football image">
+                </figure>
+              </h1>
+            </div>
+            <div>
+          </article>
+          <section id="projects">
+            {% for i in items %}
+              <article id="elements">
+                  <div id="content">
+                    <p class="name">
+                      <a class="undecorated-link thick"
+                      href="{{url_for('show_category_item',
+                      category_id=category.id,
+                      item_id=i.id)}}">
+                      {{i.name}}
+                      </a>
+                    </p>
+                  <div>
+              </article>
+            {% endfor %}
+          </section>
+    <article id="back">
+      <a class="undecorated-link thick"
+      href='{{url_for("show_all_categories")}}'>
+      Back
+      </a>
+    </article>
+  </main>
+  <footer>
+    <div class="container">
+    <figure>
+      <img class="footer-img"
+      src="{{url_for('static', filename='ball.jpg')}}"
+      alt="soccer image">
+    </figure>
+    <figcaption>
+      <div class="bottom-left">
+      <p><em>Author: Esraa Afifi </em></p>
+      </div>
+      <div class="bottom-right">
+        <p>
+          <a class="blue " href="mailto:esraa.mohamed87@gmail.com ">
+            <img class="small-image"
+            src="{{url_for('static', filename='gmail.png')}}" alt="gmail logo">
+          </a>
+          <a class="blue"
+          href="https://www.linkedin.com/in/esraa-mostafa-8bb04b35/">
+            <img class="small-image"
+            src="{{url_for('static', filename='linkedin.png')}}"
+            alt="Linkedin Thumbnail">
+          </a>
+          <a class="small-image" href="https://github.com/esraaMohamed">
+            <img class="small-image"
+            src="{{url_for('static', filename='github.png')}}"
+            alt="github account">
+          </a>
+          <a class="blue" href="https://www.facebook.com/No0oU">
+            <img class="small-image"
+            src="{{url_for('static', filename='facebook.png')}}"
+            alt="facebook logo">
+          </a>
+        </p>
+        </div>
+      </figcaption>
+    </div>
+  </footer>
+</body>
+</html>

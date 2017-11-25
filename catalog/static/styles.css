@@ -1,0 +1,178 @@
+body {
+  font-family: Verdana,Geneva,sans-serif;
+  background-color: #ffffff;
+  width: 100%;
+}
+
+header {
+  text-align: center;
+  display: inline-block;
+  width:100%;
+  background-color: white;
+}
+
+.login-logout{
+ float: right;
+ display: inline-block;
+ margin-right:65px;
+}
+
+.button {
+  font-family: inherit;
+  text-decoration: none;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+  color: white;
+  width: 10%;
+  height: 30px;
+  text-align: center;
+}
+
+.button-green {
+  background: #009900;
+}
+
+.button-red {
+  background: #cc0000;
+}
+
+.bicycle-img{
+  width: 5%;
+}
+
+.left{
+  align: left;
+}
+
+.undecorated-link{
+  text-decoration: none;
+  color: black;
+}
+
+#header-article{
+  text-align: left;
+  padding-left: 10%;
+}
+
+.main-img{
+  min-height: 600px;
+  width: 120%;
+  max-width: 100%;
+  background-size: 100%;
+}
+
+.football-img{
+  width: 409px;
+  min-height: 118px;
+}
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.green-bg-color{
+  background: rgba(46, 184, 46, 0.5);
+  height: 65px;
+  width: 300px;
+}
+.bottom-center {
+    position: absolute;
+    bottom: 15%;
+    left: 33.5%;
+    background-color: white;
+}
+.white-link{
+  color: white;
+}
+
+.footer-img{
+  width: 100%;
+  min-width: 1024px;
+}
+
+.center-text{
+  text-align: center;
+}
+
+.small-image {
+  width:20px;
+  height:20px;
+}
+.bottom-right {
+    position: absolute;
+    bottom: 8px;
+    right: 70px;
+}
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 60px;
+}
+
+#projects{
+  align-content: center;
+  padding-left: 5%;
+}
+
+#elements{
+  display: inline-flex;
+  flex-direction: column;
+  width: 30%;
+  height: 30%;
+  border-style: solid;
+  border-width: thick;
+  border-color: rgba(46, 184, 46, 0.5);
+  margin-top: 10px;
+}
+
+#content{
+  text-align: center;
+}
+
+#element {
+  width: 93%;
+  height: 30%;
+  border-style: solid;
+  border-width: thick;
+  border-color: rgba(46, 184, 46, 0.5);
+  margin-top: 10px;
+  text-align: center;
+}
+
+.thick {
+    font-weight: 900;
+}
+
+#flash {
+  align-content: center;
+}
+
+.black-font {
+  color: #000000;
+}
+
+.text-padding {
+  padding: 10px;
+}
+
+.red-link {
+  color: #cc0000;
+}
+
+#back {
+  text-align: center;
+}
+
+html {
+overflow-x:hidden;
+}
