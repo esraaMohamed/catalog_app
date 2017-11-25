@@ -215,8 +215,8 @@ def delete_category_item(category_id, item_id):
 # User Helper Functions
 def create_user(login_session):
     new_user = User(name=login_session['username'],
-                   email=login_session['email'],
-                   picture=login_session['picture'])
+                    email=login_session['email'],
+                    picture=login_session['picture'])
     session.add(new_user)
     session.commit()
     user = session.query(User).filter_by(
@@ -233,7 +233,7 @@ def get_user_id(email):
     try:
         user = session.query(User).filter_by(email=email).one()
         return user.id
-    except:
+    except Exception:
         return None
 
 
@@ -588,4 +588,3 @@ if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
     app.debug = True
     app.run(host='0.0.0.0', port=5000)
-
