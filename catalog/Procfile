@@ -1,1 +1,2 @@
-web: gunicorn python:app
+web: python database_setup.py
+web: gunicorn catalog:app
