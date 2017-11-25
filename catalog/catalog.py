@@ -32,8 +32,9 @@ CLIENT_ID = json.loads(
 # Set global variable for sending http requests
 h = httplib2.Http(disable_ssl_certificate_validation=True)
 
+
 # Create anti-forgery state token
-@app.route('/login')
+@app.route('/login/')
 def show_login():
     state = ''.join(random.choice(string.ascii_uppercase + string.digits)
                     for x in range(32))
