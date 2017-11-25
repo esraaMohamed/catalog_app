@@ -29,6 +29,8 @@ session = DBSession()
 CLIENT_ID = json.loads(
     open('client_secrets.json', 'r').read())['web']['client_id']
 
+# Set global variable for sending http requests
+h = httplib2.Http(disable_ssl_certificate_validation=True)
 
 # Create anti-forgery state token
 @app.route('/login')
@@ -259,7 +261,6 @@ def gconnect():
     access_token = credentials.access_token
     url = ('https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=%s'
            % access_token)
-    h = httplib2.Http(disable_ssl_certificate_validation=True)
     result = json.loads(h.request(url, 'GET')[1])
     # If there was an error in the access token info, abort.
     if result.get('error') is not None:
@@ -344,7 +345,6 @@ def gdisconnect():
         response.headers['Content-Type'] = 'application/json'
         return response
     url = 'https://accounts.google.com/o/oauth2/revoke?token=%s' % access_token
-    h = httplib2.Http(disable_ssl_certificate_validation=True)
     result = h.request(url, 'GET')[0]
     if result['status'] == '200':
         login_session['username'] = login_session['username']
@@ -381,7 +381,6 @@ def fbconnect():
           'grant_type=fb_exchange_token&client_id=%s&client_secret=%s&' \
           'fb_exchange_token=%s' % (
               app_id, app_secret, access_token)
-    h = httplib2.Http()
     result = h.request(url, 'GET')[1]
 
     # Use token to get user info from API
@@ -390,7 +389,6 @@ def fbconnect():
 
     url = 'https://graph.facebook.com/v2.8/' \
           'me?access_token=%s&fields=name,id,email' % token
-    h = httplib2.Http(disable_ssl_certificate_validation=True)
     result = h.request(url, 'GET')[1]
     # print "url sent for API access:%s"% url
     # print "API JSON result: %s" % result
@@ -406,7 +404,6 @@ def fbconnect():
     # Get user picture
     url = 'https://graph.facebook.com/v2.8/me/picture?access_token' \
           '=%s&redirect=0&height=200&width=200' % token
-    h = httplib2.Http(disable_ssl_certificate_validation=True)
     result = h.request(url, 'GET')[1]
     data = json.loads(result)
 
@@ -444,7 +441,6 @@ def fbdisconnect():
     access_token = login_session['access_token']
     url = 'https://graph.facebook.com/%s/permissions?access_token=%s' % (
         facebook_id, access_token)
-    h = httplib2.Http(disable_ssl_certificate_validation=True)
     result = h.request(url, 'DELETE')[1]
     return redirect(url_for('show_all_categories'))
 
