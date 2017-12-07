@@ -22,7 +22,7 @@ app = Flask(__name__)
 app.secret_key = 'supersecretkey'
 app.debug = True
 
-engine = create_engine('sqlite:///catalog.db')
+engine = create_engine('postgresql://catalog:catalog@localhost/catalog')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
