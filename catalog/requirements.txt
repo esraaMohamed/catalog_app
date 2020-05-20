@@ -2,7 +2,7 @@ Flask==0.9
 SQLAlchemy==1.1.15
 requests==2.18.4
 flask_httpauth==3.2.3
-httplib2==0.10.3
+httplib2==0.18.0
 google_api_python_client==1.6.4
 passlib==1.7.1
 gunicorn==19.7.1
